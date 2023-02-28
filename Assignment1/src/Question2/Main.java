@@ -1,16 +1,26 @@
 package Question2;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        String text = sc.nextLine();
-        System.out.println("Text user entered is: "+text);
+        String text="";
+        String output="";
+        while(!Objects.equals(text, "XDONE")){
+            output+=" "+text;
+            text = sc.nextLine();
+        }
+        System.out.println("User input text:"+output);
     }
 }
 
 
 //Output:
-//        Hi this user enetered text
-//        Text user entered is: Hi this user enetered text
+//HI!
+//        THIS IS THE
+//        2ND QUESTION
+//        OF MY ASSIGNMENT
+//        XDONE
+//        User input text:  HI! THIS IS THE 2ND QUESTION OF MY ASSIGNMENT
