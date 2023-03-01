@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String text="";
         String output="";
-        while(!Objects.equals(text, "XDONE")){
+        while(!text.equals("XDONE")){
             output+=" "+text;
             text = sc.nextLine();
         }
