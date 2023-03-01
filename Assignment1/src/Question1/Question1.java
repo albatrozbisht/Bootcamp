@@ -1,6 +1,6 @@
 package Question1;
 
-public class question1 {
+public class Question1 {
     static String first_name;
     static String last_name;
     static int age;

@@ -14,17 +14,21 @@ public class Employee {
         this.age=age;
     }
 
-//    setter
-    public void setdesignation(String d){
-        this.designation=d;
-    }
-
-//    getter
-    public String getdesignation(){
+    public String getDesignation() {
         return designation;
     }
 
-    public String toString(){//overriding the toString() method
-        return "Full name of the employee is: "+first_name+" "+last_name+" and he is "+age+" years old and he is currently appointed as "+designation;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
+
+    public String toString(){//overriding the toString() method
+        return "Full name of the employee is ".concat(first_name).concat(" ").concat(last_name)
+                        .concat(" and he is ").concat(String.valueOf(age))
+                .concat(" years old and he is currently appointed as "+designation);
+    }
+
+
+
+
 }

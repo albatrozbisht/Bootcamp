@@ -9,23 +9,23 @@ public class Main {
             for(int j=0; j<arr[0].length;j++){
                 sum_r += arr[i][j];
             }
-            System.out.println("Sum of "+i+"th row: "+sum_r);
+            System.out.println("Sum of row "+(i+1)+" is: "+sum_r);
         }
-//        sum of colums
+//        sum of columns
         for(int i=0;i<arr.length;i++){
             int sum_c=0;
             for(int j=0; j<arr[0].length;j++){
                 sum_c += arr[j][i];
             }
-            System.out.println("Sum of "+i+"th column: "+sum_c);
+            System.out.println("Sum of column "+(i+1)+" is: "+sum_c);
         }
     }
 }
 
 //Output:
-//        Sum of 0th row: 6
-//        Sum of 1th row: 15
-//        Sum of 2th row: 24
-//        Sum of 0th column: 12
-//        Sum of 1th column: 15
-//        Sum of 2th column: 18
+//        Sum of row 1 is: 6
+//        Sum of row 2 is: 15
+//        Sum of row 3 is: 24
+//        Sum of column 1 is: 12
+//        Sum of column 2 is: 15
+//        Sum of column 3 is: 18
