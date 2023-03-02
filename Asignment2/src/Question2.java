@@ -9,7 +9,7 @@ public class Question2 {
         try {
             x = sc.nextInt();
             y = sc.nextInt();
-            System.out.println("Divison1 is: " + (x / y));
+            System.out.println("Division1 is: " + (x / y));
         } catch (InputMismatchException i) {
                 System.out.println("Please enter an integer ");
                 System.out.println("Catch block 1 is executed");
