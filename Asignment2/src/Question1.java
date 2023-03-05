@@ -1,13 +1,31 @@
+import java.lang.reflect.ParameterizedType;
+
 public class Question1 {
     public static void main(String[] args){
+
+//        Parameterized Constructor
+
         ICICI ic =new ICICI("ICICI","Delhi","Mohit",5
         , 12.6,6.2,15);
+
 
         System.out.println(ic.getName());
         System.out.println(ic.getChairmanName());
         System.out.println(ic.getHomeLoanInterestRate());
         System.out.println(ic.getFdInterestRate());
         System.out.println(ic.toString());
+
+
+//        Default constructor
+        ICICI ic1 = new ICICI();
+
+        ic1.setName("Default Mohit");
+        ic1.setChairmanName("Default raman");
+        ic1.setBranchCount(4);
+
+        System.out.println(ic1.getName());
+        System.out.println(ic1.getChairmanName());
+        System.out.println(ic1.getBranchCount());
     }
 }
 
@@ -15,6 +33,10 @@ abstract class Banking{
     private String Name, headofficeAddress, chairmanName;
     private double branchCount, fdInterestRate, personalLoanInterestRate, homeLoanInterestRate;
 
+
+
+    Banking(){
+    }
     Banking(String Name, String headofficeAddress, String chairmanName,double branchCount,
             double fdInterestRate, double personalLoanInterestRate, double homeLoanInterestRate)
     {
@@ -125,6 +147,9 @@ class ICICI extends Banking{
         super(Name,headofficeAddress,chairmanName,branchCount, fdInterestRate,
                 personalLoanInterestRate,homeLoanInterestRate);
     }
+
+    public ICICI() {
+    }
 }
 
 
@@ -133,6 +158,7 @@ class ICICI extends Banking{
 //        Mohit
 //        15.0
 //        12.6
-//        Name: ICICI head office Address: Delhi chairman Name: Mohit branch Count: 5.0 fd Interest Rate: 12.6 personal
-//        Loan Interest Rate: 6.2 home Loan Interest Rate: 15.0 fd Interest Rate: 12.6 personal Loan Interest Rate: 6.2
-//        home Loan Interest Rate: 15.0
+//        Name: ICICI head office Address: Delhi chairman Name: Mohit branch Count: 5.0 fd Interest Rate: 12.6 personal Loan Interest Rate: 6.2 home Loan Interest Rate: 15.0 fd Interest Rate: 12.6 personal Loan Interest Rate: 6.2 home Loan Interest Rate: 15.0
+//        Default Mohit
+//        Default raman
+//        4.0
