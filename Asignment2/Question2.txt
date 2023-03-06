@@ -1,2 +1,0 @@
-User{first_name='Mohit', last_name='Bisht', age=21, phone_number=''}
-User{first_name='Shashank', last_name='Singh', age=20, phone_number='7637875647'}
