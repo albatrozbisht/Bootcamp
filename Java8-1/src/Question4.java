@@ -1,19 +1,18 @@
 interface DemoInterface {
-    default Student myMethod(Student str){
-        return str;
-    }
+    Student myMethod(String str);
 }
 
 class Student {
-    public Student(String str){
-        System.out.println("Constructor of Student"+str);
+    String str;
+    public Student(String str) {
+        this.str=str;
+        System.out.println("Constructor of Student "+str);
     }
-
 }
 public class Question4 {
     public static void main(String[] args) {
-        DemoInterface demoInterface = Student::new;
-//        String str=demoInterface.myMethod(new char[]{'a', 'b', 'c', 'd'});
+        DemoInterface demoInterface= Student::new;
+        demoInterface.myMethod("Mohit");
         System.out.println(demoInterface);
     }
 }
