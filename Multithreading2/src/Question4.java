@@ -1,25 +1,28 @@
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Question4 {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService executor = Executors.newSingleThreadExecutor();
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService es= Executors.newSingleThreadExecutor();
+        Future<String> future = es.submit(() ->
+        {
 
-        Callable<Integer> callable = new Callable<Integer>() {
+            Thread.sleep(2000);
+            return "Welcome";
+        });
+        while(!future.isDone()){
+            System.out.println("waiting");
+            Thread.sleep(200);
 
-            public Integer call() throws Exception {
-                // Random generator = new Random();
-                // Integer randomNumber = generator.nextInt(5);
-                return (int)(Math.random()*100);
-            }
-        };
-        Future<Integer> future = executor.submit(callable);
+        }
+        System.out.println("future completed");
 
-        int result = future.get();
-        System.out.println(result);
-        executor.shutdown();
+        String s=future.get();
+
+        System.out.println(s);
+
+        es.shutdown();
     }
 }
-
-
-//Output:
-//        53
