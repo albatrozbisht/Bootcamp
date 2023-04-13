@@ -1,25 +1,36 @@
 package com.demo.service;
 
-import com.demo.domain.Order;
-import junit.framework.TestCase;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import com.demo.domain.Order;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class OrderServiceTest {
-    @Test
-    public void testPlaceOrder_withOneArgument() {
-        Order or = mock(Order.class);
-        OrderService orderServiceMock = mock(OrderService.class);
-        orderServiceMock.placeOrder(or);
-        verify(orderServiceMock).placeOrder(or);
+    @Mock
+    public EmailService emailService ;
+    @Mock
+    public Order order = new Order(27,"Gaming Laptop",100000D) ;
+
+    @InjectMocks
+    OrderService orderService ;
+
+    @Test()
+    public void testPlaceOrder(){
+        orderService.placeOrder(order);
+        verify(emailService ).sendEmail(order);
     }
 
     @Test
-    public void testPlaceOrder_withTwoArguments() {
-        OrderService orderServiceMock = mock(OrderService.class);
-        when(orderServiceMock.placeOrder(any(Order.class), anyString())).thenReturn(true);
-        assertTrue(orderServiceMock.placeOrder(new Order(), "Order Placed"));
+    public void testPlaceOrderWithString(){
+        String message = "Order is placed" ;
+        when(emailService.sendEmail(order , message)).thenReturn(true) ;
+        assertTrue(orderService.placeOrder(order , message)); ;
     }
 }
